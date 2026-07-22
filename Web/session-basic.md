@@ -38,32 +38,32 @@
 
 ### 사용자 정보
 
-user = { "guest": "guest", "user": "user1234","admin": FLAG }
+`user = { "guest": "guest", "user": "user1234","admin": FLAG }`
 
 admin의 비밀번호는 FLAG로 설정되어있기 때문에 정상적인 로그인은 사실상 불가
 
 ### 로그인 성공 시
-
+```python
 session_id = os.urandom(32).hex()
 session_storage[session_id] = username
 resp.set_cookie("sessionid", session_id)
-
+```md
 로그인 성공 시  
 - 랜덤한 Session ID 생성
 - Session Storage에 저장
 - 브라우저 Cookie에 Session ID 저장
-
+```
 ### 메인 페이지
-
+```python
 session_id = request.cookies.get("sessionid")
 username = session_storage[session_id]
-
+```md
 브라우저에서 sessionid를 가져온 후 
 조회하여 username 얻음
-
+```
 ### 서버 실행 시
 
-session_storage[os.urandom(32).hex()] = 'admin'
+`session_storage[os.urandom(32).hex()] = 'admin'`
 
 프로그램이 실행될 때 admin의 Session ID도 랜덤하게 생성
 
