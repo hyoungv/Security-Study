@@ -26,21 +26,21 @@
 
 ### 사용자 입력 값
 
-host = request.form.get("host")
+`host = request.form.get("host")`
 
 사용자가 입력한 Host 값을 가져옴
 
 
 ### ping 명령어
 
-cmd = f'ping -c 3 "{host}"'
+`cmd = f'ping -c 3 "{host}"'`
 
 사용자의 입력을 이용해 ping 명령어 만듬
 
 
 ### /bin/sh 
 
-output = subporcess.check_output(['/bin/sh/', '-c', cmd])
+`output = subporcess.check_output(['/bin/sh/', '-c', cmd])`
 
 여기서 만들어진 cmd 문자열을 /bin/sh가 실행
 실행결과는 output 변수에 저장되고 웹 페이지에 출력
@@ -68,7 +68,7 @@ cmd 문자열 생성
 
 ## 취약점 분석
 
-cmd = f'ping -c 3 "{host}"'
+`cmd = f'ping -c 3 "{host}"'`
 
  - 사용자가 입력한 내용이 그대로 명령어에 들어
 
