@@ -23,14 +23,14 @@ File Download 취약점이 존재하는 웹 서비스에서 flag.py를 다운로
 
 ### 사용자 입력
 
-filename = request.args.get("name")
+`filename = request.args.get("name")`
 
 사용자가 URL에서 전달한 파일명을 가져온다
 
 
 ### 취약한 코드
 
-with open(f'{UPLOAD_DIR}/{filename}', 'rb') as f:
+`with open(f'{UPLOAD_DIR}/{filename}', 'rb') as f:`
 
 업로드와 다르게 사용자가 입력한 filename을 검증하지 않고 그대로 사용한다
 
@@ -61,7 +61,6 @@ flag.py
 5. Flag 획득
 
 ---
-
 
 ## 배운 점
 
