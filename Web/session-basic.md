@@ -48,21 +48,21 @@ session_id = os.urandom(32).hex()
 session_storage[session_id] = username
 resp.set_cookie("sessionid", session_id)
 ```
-```md
+
 로그인 성공 시  
 - 랜덤한 Session ID 생성
 - Session Storage에 저장
 - 브라우저 Cookie에 Session ID 저장
-```
+
 ### 메인 페이지
 ```python
 session_id = request.cookies.get("sessionid")
 username = session_storage[session_id]
 ```
-```md
+
 브라우저에서 sessionid를 가져온 후 
 조회하여 username 얻음
-```
+
 ### 서버 실행 시
 
 `session_storage[os.urandom(32).hex()] = 'admin'`
